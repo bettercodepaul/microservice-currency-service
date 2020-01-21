@@ -84,7 +84,6 @@ public class CountryWithCurrencyFacade {
         Preconditions.checkNotNull(countryWithCurrency, "Country With Currency must not be null");
         Preconditions.checkNotNull(countryWithCurrency.getCountryShortName(), "Country short name must not be null");
         Preconditions.checkStringLength(countryWithCurrency.getCountryShortName(), 3, "Country short name must have 3 characters");
-        LOG.info("Currency: {}", countryWithCurrency.getCurrency());
         CurrencyValidation.validateCurrencyTO(countryWithCurrency.getCurrency());
         LOG.info("Resource to add currency {} to country with short name {} triggered", countryWithCurrency.getCurrency().getName(), countryWithCurrency.getCountryShortName());
         return this.currencyService.addCountryWithCurrency(countryWithCurrency);
