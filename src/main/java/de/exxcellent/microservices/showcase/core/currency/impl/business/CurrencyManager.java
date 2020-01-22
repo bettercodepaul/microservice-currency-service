@@ -24,7 +24,7 @@ import java.util.Set;
 @ApplicationScoped
 public class CurrencyManager implements CurrencyICI {
     private static final Logger LOG = LoggerFactory.getLogger(CurrencyManager.class);
-    private CurrencyRepository currencyRepository;
+    private final CurrencyRepository currencyRepository;
 
     @Inject
     CurrencyManager(final CurrencyRepository currencyRepository) {
@@ -69,7 +69,7 @@ public class CurrencyManager implements CurrencyICI {
         Preconditions.checkNotNull(countryShortName, "Country short name must not be null");
         Preconditions.checkStringLength(countryShortName, 3, "Country short name must have 3 characters");
         LOG.info("Query storage for currency of country with short name {}", countryShortName);
-        Optional<CurrencyET> optionalCurrencyET = this.currencyRepository.findCurrencyByCountry(countryShortName);
+        final Optional<CurrencyET> optionalCurrencyET = this.currencyRepository.findCurrencyByCountry(countryShortName);
         if(optionalCurrencyET.isPresent()) {
             final CurrencyET currency = optionalCurrencyET.get();
             LOG.info("Returning currency {} for country with short name {}", currency.getName(), countryShortName);
@@ -83,7 +83,6 @@ public class CurrencyManager implements CurrencyICI {
     public Map<String, CurrencyET> addCountryWithCurrency(final String countryShortName, final CurrencyET currency) {
         Preconditions.checkNotNull(countryShortName, "Country short name must not be null");
         Preconditions.checkStringLength(countryShortName, 3, "Country short name must have 3 characters");
-        CurrencyValidation.validateCurrencyET(currency);
         addCurrencyIfNotExisting(currency);
         LOG.info("Adding currency {} to country with short name {}", currency.getName(), countryShortName);
         return this.currencyRepository.addCountryWithCurrency(countryShortName, currency);

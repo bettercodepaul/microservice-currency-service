@@ -34,7 +34,7 @@ public class CurrencyFacade {
      */
     private static final Logger LOG = LoggerFactory.getLogger(CurrencyFacade.class);
 
-    private CurrencyBCI currencyService;
+    private final CurrencyBCI currencyService;
 
     @Inject
     CurrencyFacade(final CurrencyBCI currencyService) {

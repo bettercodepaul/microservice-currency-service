@@ -32,7 +32,7 @@ public class CurrencyRuntimeStorage implements CurrencyRepository {
      * Constructor.
      * Initializes some dummy data.
      */
-    CurrencyRuntimeStorage() {
+    public CurrencyRuntimeStorage() {
         this.countriesWithCurrency = new HashMap<>();
         this.currencies = new HashSet<>();
         initData();

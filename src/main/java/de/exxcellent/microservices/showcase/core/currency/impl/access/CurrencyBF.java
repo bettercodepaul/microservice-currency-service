@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @ApplicationScoped
 public class CurrencyBF implements CurrencyBCI {
 
-    private CurrencyICI currencyManager;
+    private final CurrencyICI currencyManager;
 
     @Inject
     CurrencyBF(final CurrencyICI currencyManager) {
