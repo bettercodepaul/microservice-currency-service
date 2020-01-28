@@ -3,11 +3,11 @@
 #
 # Build the image with:
 #
-# docker build -f Dockerfile -t quarkus/currency-service-jvm .
+# docker build --no-cache -t exxcellent/cps-currency-service .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8081:8081 quarkus/currency-service-jvm
+# docker run -i --rm -p 8081:8081 exxcellent/cps-currency-service
 #
 ###
 # our base build image
@@ -20,7 +20,7 @@ COPY ./pom.xml ./pom.xml
 COPY ./src ./src
 
 # build for release
-RUN mvn package
+RUN mvn clean package
 
 # our final base image
 FROM fabric8/java-alpine-openjdk8-jre:1.6.5
