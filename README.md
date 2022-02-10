@@ -1,7 +1,7 @@
 # Currency-Service
 
 This service is one of the backend services used for a showcase for a microservice architecture.
-The other services are [language-service](https://github.com/exxcellent/microservice-language-service) and [country-service](https://github.com/exxcellent/microservice-country-service). The showcase is part of a guest lecture at the University Stuttgart. The documents to the lecture can be found [here](https://github.com/exxcellent/microservices-kubernetes-docs).
+The other services are [language-service](https://github.com/bettercodepaul/microservice-language-service) and [country-service](https://github.com/bettercodepaul/microservice-country-service). The showcase is part of a guest lecture at the University Stuttgart. The documents to the lecture can be found [here](https://github.com/bettercodepaul/microservices-kubernetes-docs).
 
 This project uses [Quarkus](https://quarkus.io/), the Supersonic Subatomic Java Framework.
 
